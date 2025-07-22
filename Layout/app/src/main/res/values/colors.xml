@@ -9,5 +9,6 @@
     <color name="green">#00FF17</color>
     <color name="yellow">#FFE600</color>
     <color name="gray">#6A696A</color>
-    <color name="Gold">#C3FFB500</color>
+    <color name="gold">#FFD700</color>
+
 </resources>

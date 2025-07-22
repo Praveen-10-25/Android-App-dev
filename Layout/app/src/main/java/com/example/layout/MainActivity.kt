@@ -1,56 +1,64 @@
 package com.example.layout
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
+
     lateinit var userEmail: EditText
     lateinit var userpassword: EditText
     lateinit var loginbtrn: Button
+    lateinit var signupbtn:Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        userEmail = findViewById(R.id.Email_input)
-        userpassword = findViewById(R.id.Password_input)
-        loginbtrn = findViewById(R.id.button)
+        userEmail = findViewById(R.id.emailInput)
+        userpassword = findViewById(R.id.passwordInput)
+        loginbtrn = findViewById(R.id.buttonlogin)
+        signupbtn=findViewById(R.id.buttonsignup)
+
+        signupbtn.setOnClickListener{
+            val signUp= Intent(this@MainActivity,SignUp::class.java)
+            startActivity(signUp)
+        }
 
         loginbtrn.setOnClickListener {
-            val email = userEmail.toString().trim()
+            val email = userEmail.text.toString()
             val password = userpassword.text.toString()
-            val pattern = "[a-zA-z0-9._-]+\\.+[a-z]+"
-            if(email!=null&&password!=null){
-                if (email.matches(pattern.toRegex())&&!passpat(password)){
-                    Toast.makeText(this,"Login SuccessFully",Toast.LENGTH_SHORT).show()
-                }else{
-                    Toast.makeText(this,"Enter an Valid Email and Password",Toast.LENGTH_SHORT).show()
-                    return@setOnClickListener
-                }
-            }else{
-                Toast.makeText(this,"You can't Login Without Entering Your Email and Password.......",Toast.LENGTH_SHORT).show()
+            val pattern = android.util.Patterns.EMAIL_ADDRESS
+
+            if (email.isBlank() || password.isBlank()) {
+                Toast.makeText(this, "Please enter both Email and Password", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
+            }
+
+            if (pattern.matcher(email).matches() && passpat(password)) {
+                Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Enter a valid Email and Strong Password", Toast.LENGTH_SHORT).show()
             }
         }
     }
-    private fun passpat(password:String):Boolean{
-        val min_length=8
-        val hasUpperCase=password.any{it.isUpperCase()}
-        val hasLowerCase=password.any { it.isLowerCase() }
-        val hasdigit=password.any{it.isDigit()}
-        val hasSpecialChar=password.any{!it.isLetterOrDigit()}
-        return password.length>=min_length
-                &&hasdigit
-                &&hasLowerCase
-                &&hasSpecialChar
-                &&hasUpperCase
-    }
 
+    private fun passpat(password: String): Boolean {
+        val minLength = 8
+        val hasUpperCase = password.any { it.isUpperCase() }
+        val hasLowerCase = password.any { it.isLowerCase() }
+        val hasDigit = password.any { it.isDigit() }
+        val hasSpecialChar = password.any { !it.isLetterOrDigit() }
+
+        return password.length >= minLength &&
+                hasDigit &&
+                hasLowerCase &&
+                hasSpecialChar &&
+                hasUpperCase
+    }
 }

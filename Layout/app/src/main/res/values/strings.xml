@@ -4,4 +4,6 @@
     <string name="email_id">Email_id</string>
     <string name="book_your_test_drive_now">Book Your Test Drive Now!!!</string>
     <string name="book_now">BOOK NOW!</string>
+    <string name="Signup">Signup</string>
+    <string name="Sign_up">Sign_up\n</string>
 </resources>
