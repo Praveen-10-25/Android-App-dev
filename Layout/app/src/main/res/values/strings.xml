@@ -6,4 +6,9 @@
     <string name="book_now">BOOK NOW!</string>
     <string name="Signup">Signup</string>
     <string name="Sign_up">Sign_up\n</string>
+    <string name="Sign_In" />
+    <string name="SignIn">Sign_In\n</string>
+    <string name="confrompassword">Confrompassword</string>
+    <string name="confrom_password">confrom password</string>
+    <string name="conform_password">conform_password</string>
 </resources>
