@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Layout</string>
+    <string name="password">Password</string>
+    <string name="email_id">Email_id</string>
+    <string name="book_your_test_drive_now">Book Your Test Drive Now!!!</string>
+    <string name="book_now">BOOK NOW!</string>
+</resources>
