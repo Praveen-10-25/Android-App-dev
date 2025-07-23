@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Layout</string>
+    <string name="app_name">Todo-list</string>
     <string name="password">Password</string>
     <string name="email_id">Email_id</string>
     <string name="book_your_test_drive_now">Book Your Test Drive Now!!!</string>
@@ -11,4 +11,13 @@
     <string name="confrompassword">Confrompassword</string>
     <string name="confrom_password">confrom password</string>
     <string name="conform_password">conform_password</string>
+    <string-array name="Models">
+        <item>classic-350</item>
+        <item>reborn-350</item>
+        <item>bullet-350</item>
+        <item>bullet-600</item>
+        <item>classic-600</item>
+        <item>reborn-600</item>
+        <item>thunderbird-350</item>
+    </string-array>
 </resources>

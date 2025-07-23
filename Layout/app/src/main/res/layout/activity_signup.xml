@@ -15,6 +15,8 @@
         android:id="@+id/backtologin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_revert" />
@@ -23,6 +25,7 @@
         android:id="@+id/registerH"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:fontFamily="sans-serif"
         android:padding="5dp"
         android:text="@string/Sign_up"
@@ -31,6 +34,7 @@
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,10 +51,9 @@
         android:textColorHint="@color/red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/passwordInput"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="@+id/passwordInput"
         app:layout_constraintTop_toBottomOf="@+id/passwordInput"
-        app:layout_constraintVertical_bias="0.125"
+        app:layout_constraintVertical_bias="0.077"
         app:layout_constraintWidth_percent="0.75" />
 
     <ImageView
@@ -143,7 +146,7 @@
         android:id="@+id/usernameInput"
         android:layout_width="230dp"
         android:layout_height="56dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="448dp"
         android:background="@drawable/corner"
         android:hint="Username"
         android:inputType="textPersonName"
@@ -161,7 +164,7 @@
         android:id="@+id/editTextPhone"
         android:layout_width="230dp"
         android:layout_height="56dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="48dp"
         android:background="@drawable/corner"
         android:ems="10"
         android:hint="Phone Number"
@@ -171,7 +174,6 @@
         android:textColor="@color/red"
         android:textColorHint="@color/red"
         app:layout_constraintEnd_toEndOf="@+id/passwordInput2"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="@+id/passwordInput2"
         app:layout_constraintTop_toBottomOf="@+id/passwordInput2" />
 

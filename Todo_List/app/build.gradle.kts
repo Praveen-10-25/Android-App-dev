@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.layout"
+    namespace = "com.example.todo_list"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.layout"
+        applicationId = "com.example.todo_list"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -42,7 +42,6 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.fragment)
     implementation(libs.androidx.recyclerview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

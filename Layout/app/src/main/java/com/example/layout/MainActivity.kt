@@ -44,11 +44,6 @@ class MainActivity : AppCompatActivity() {
             val storedEmail = sharedPref.getString("email", null)
             val storedPassword = sharedPref.getString("password", null)
 
-            println("Stored Email: $storedEmail")
-            println("Stored Password: $storedPassword")
-            println("Entered Email: $email")
-            println("Entered Password: $password")
-
             Log.d("DEBUG", "Stored Password: $storedPassword")
             Log.d("DEBUG", "Input Password: $password")
 
@@ -60,6 +55,8 @@ class MainActivity : AppCompatActivity() {
             }
             if (email == storedEmail && password == storedPassword) {
                     Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show()
+                val home=Intent(this@MainActivity,homepage::class.java)
+                startActivity(home)
             }
             else {
                 Toast.makeText(this, "Incorrect Mail or Password", Toast.LENGTH_SHORT).show()
