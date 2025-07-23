@@ -2,6 +2,7 @@ package com.example.layout
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -31,34 +32,38 @@ class MainActivity : AppCompatActivity() {
         }
 
         loginbtrn.setOnClickListener {
-            val email = userEmail.text.toString()
-            val password = userpassword.text.toString()
-            val pattern = android.util.Patterns.EMAIL_ADDRESS
+            val email = userEmail.text.toString().trim()
+            val password = userpassword.text.toString().trim()
 
             if (email.isBlank() || password.isBlank()) {
                 Toast.makeText(this, "Please enter both Email and Password", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            if (pattern.matcher(email).matches() && passpat(password)) {
-                Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, "Enter a valid Email and Strong Password", Toast.LENGTH_SHORT).show()
+            val sharedPref = getSharedPreferences("UserData", MODE_PRIVATE)
+            val storedEmail = sharedPref.getString("email", null)
+            val storedPassword = sharedPref.getString("password", null)
+
+            println("Stored Email: $storedEmail")
+            println("Stored Password: $storedPassword")
+            println("Entered Email: $email")
+            println("Entered Password: $password")
+
+            Log.d("DEBUG", "Stored Password: $storedPassword")
+            Log.d("DEBUG", "Input Password: $password")
+
+
+
+            if (storedPassword==null || storedEmail==null) {
+                Toast.makeText(this, "No account Found.please Sign-Up", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            if (email == storedEmail && password == storedPassword) {
+                    Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                Toast.makeText(this, "Incorrect Mail or Password", Toast.LENGTH_SHORT).show()
             }
         }
-    }
-
-    private fun passpat(password: String): Boolean {
-        val minLength = 8
-        val hasUpperCase = password.any { it.isUpperCase() }
-        val hasLowerCase = password.any { it.isLowerCase() }
-        val hasDigit = password.any { it.isDigit() }
-        val hasSpecialChar = password.any { !it.isLetterOrDigit() }
-
-        return password.length >= minLength &&
-                hasDigit &&
-                hasLowerCase &&
-                hasSpecialChar &&
-                hasUpperCase
     }
 }
