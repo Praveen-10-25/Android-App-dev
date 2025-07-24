@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.util.Calendar
+import android.widget.Toast
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var todoAdapter: TodoAdapter
@@ -66,6 +68,8 @@ class MainActivity : AppCompatActivity() {
             todoList.clear()
             todoList.addAll(newList)
             todoAdapter.notifyDataSetChanged()
+            Toast.makeText(this,"Deleted Successfully",Toast.LENGTH_SHORT).show()
+            return@setOnClickListener
         }
     }
 
